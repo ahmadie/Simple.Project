@@ -6,7 +6,6 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-console.log('hixxx')
 var app = express();
 
 // view engine setup
@@ -34,11 +33,10 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+
   // render the error page
   res.status(err.status || 500);
-  //　コメットアウトしたのでerrを返せる方法をさがす;
-  // res.render('error');
-  res.send(err)
+  res.render('error.ejs');
 });
 
 module.exports = app;
